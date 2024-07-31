@@ -1,0 +1,28 @@
+n1 = float(input('Digite um número:'))
+n2 = float(input('Digite outro número:'))
+n3 = float(input('Digite mais um número:'))
+
+c1 = n1 > n2 and n1 > n3 and n2 > n3
+c1_1 = n1 > n2 and n1 > n3 and n3 > n2
+c2 = n2 > n1 and n2 > n3 and n1 > n3
+c2_2 = n2 > n1 and n2 > n3 and n3 > n1
+c3 = n3 > n1 and n3  > n2 and n1 > n2
+c3_3 = n3 > n1 and n3 > n2 and n2 > n2 
+
+if c1 == True: 
+    print(f'O maior número é {n1} e o menor é {n3}')
+
+elif c1_1 == True:
+    print(f'O maior número é {n1} e o menor é {n2}')
+
+elif c2 == True:
+    print(f'O maior número é {n2} e o menor é {n3}')
+
+elif c2_2 == True:
+    print(f'O maior número é {n2} e o menor é {n1}')
+
+elif c3 == True:
+    print(f'O maior número é {n3} e o menor é {n2}')
+
+else:
+    print(f'O maior número é {n3} e o menor é {n1}')
