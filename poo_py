@@ -1,0 +1,78 @@
+# Ideia de projeto: https://cbv-web.dataproject.com/CompetitionTeamDetails.aspx?TeamID=436&ID=46
+
+#criar classe basica, que possui as caracteristicas que todas as pessoas tem
+
+class Pessoa:
+    '''Função que cria uma classe básica, que posteriormente vai ser chamada usando o comando super.'''
+    def __init__(self, nome: str, idade: int, equipe: str) -> None:
+        self.nome = nome
+        self.idade = idade
+        self.equipe = equipe
+
+        pass
+    def apresentar(self):
+        return f"Oi eu me chamo {self.nome},tenho {self.idade} anos."
+
+
+#criar classes filhas:
+class Atleta(Pessoa):
+    def __init__(self, nome: str, idade: int, curso: str, equipe: str, altura: float, posicao: str):
+        super().__init__(nome, idade, equipe) ##chama o construtor da classe pai
+        self.altura = altura
+        self.posicao = posicao
+    def apresentar(self):
+        return f"Oi eu sou o aluno {self.nome}, tenho {self.idade} e jogo pela {self.equipe}."
+    
+class Tecnico(Pessoa):
+    def __init__(self, nome: str, idade: int, equipe: str, salario: float):
+        super().__init__(nome, idade, equipe) 
+        self.salario = salario
+    def apresentar(self):
+        return f"Oi eu sou {self.nome}, tecnico da equipe {self.equipe}"
+#criando os objetos e apresentando eles
+aluno = Atleta("Lucas", 20, "Ciência de Dados", "Pinguins", 1.79, "Levantador")
+marlone = Tecnico("Joao", 24, "FAFICH", 300)
+print(marlone.nome)
+print(marlone.apresentar())
+
+class Time:
+    def __init__(self, nome: str, cidade: str, estado: str, tamanho: int ):
+        self.nome = nome
+        self.cidade = cidade
+        self.estado = estado
+        self.tamanho = tamanho
+    def apresentar(self):
+        return f"A equipe {self.nome} está localizada na cidade de {self.cidade}, {self.estado}.Seu elenco atualmente conta com {self.tamanho} atletas."
+    
+class Atletica(Time):
+    def __init__(self, nome: str, cidade: str, estado: str, tamanho: int, universidade: str, cursos: str) -> None:
+        super().__init__(nome, cidade, estado, tamanho)
+        self.universidade = universidade
+        self.curso = cursos
+
+class Clube(Time):
+    def __init__(self, nome: str, cidade: str, estado: str, tamanho: int, divisão: str, titulos: int):
+        super().__init__(nome, cidade, estado, tamanho)
+        self.divisão = divisão
+        self.titulos = titulos
+
+
+fafich = Atletica("FAFICH", "Belo Horizonte", "MG", 20, "UFMG", "Humanas")
+print(fafich.apresentar())
+
+
+class Veiculo:
+    def __init__(self, marca: str, modelo: str):
+        '''
+        Função que cria as caracteristicas da classe'''
+        self.marca = marca
+        self.modelo = modelo 
+        
+class Moto(Veiculo):
+    def __init__(self, marca: str, modelo: str, estilo: str):
+        super().__init__(marca, modelo)
+        self.estilo = estilo
+
+minha_moto = Moto("Yamaha", "MT-03", "esportiva")
+print(minha_moto.marca)
+       
