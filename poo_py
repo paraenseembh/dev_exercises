@@ -1,5 +1,14 @@
 # Ideia de projeto: https://cbv-web.dataproject.com/CompetitionTeamDetails.aspx?TeamID=436&ID=46
 
+'''
+
+Estrutura das aulas:
+
+1)Classes e métodos
+2)Herança e polissemia
+3)Associação e encapsulamento
+
+'''
 #criar classe basica, que possui as caracteristicas que todas as pessoas tem
 
 class Pessoa:
@@ -76,3 +85,43 @@ class Moto(Veiculo):
 minha_moto = Moto("Yamaha", "MT-03", "esportiva")
 print(minha_moto.marca)
        
+#encapsulamento
+class ContaBancaria:
+    def __init__(self, titular, saldo):
+        self.titular = titular
+        self.__saldo = saldo #o saldo está encapsulado, ou seja, protegido
+'''
+    def mostrar_saldo(self):
+        print(f"O saldo de {self.titular} é : R$ {self.__saldo}") # não vai funcionar
+
+    def depositar(self,valor : float):
+        self.__saldo += valor
+        print(f"Depósito de R${valor} realizado com sucesso.") #não vai funcionar '''
+
+#Getters e setters
+
+@property
+def saldo(self):
+    return self.__saldo #exemplo de getter(pega o saldo)
+
+@saldo.setter
+def saldo(self, valor: float): 
+    if valor >=0:
+        self.__saldo = valor #exemplo de setter(altera o saldo)
+    else:
+        raise ValueError("O saldo não pode ser um valor negativo.")
+
+#decoradores
+'''São uma forma mais elegante de permitir que os métodos getters e setters sejam utilizados de forma mais natural, sem precisar chamar as funções diretamente.
+
+-Simplicidade: permite acessar e modificar atributos COMO SE FOSSEM públicos
+-Validação: com o setter, dá para adicionar regras de validação, sem expor o atributo diretamente
+-Flexibilidade: dá longevidade para o codigo
+
+https://www.freecodecamp.org/portuguese/news/o-decorator-property-em-python-seus-casos-de-uso-vantagens-e-sintaxe/
+
+'''
+
+conta1 = ContaBancaria("Pedro", 0)
+conta1.saldo = -200
+print(conta1.saldo)

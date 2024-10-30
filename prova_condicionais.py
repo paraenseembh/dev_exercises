@@ -10,3 +10,7 @@ elif numero_escolhido < 0 :
     print(f'O numero {numero_escolhido} eh negativo.')
 else:
     print(f'O numero eh igual a zero.') 
+
+
+
+
