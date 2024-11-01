@@ -27,3 +27,27 @@ while tentativas > 0:
             print("Acesso bloqueado.")
             for _ in range(3):
                 print("Acesso bloqueado.")
+
+# Definindo as credenciais corretas
+usuario_correto = "admin"
+senha_correta = "1234"
+
+# Número de tentativas permitidas
+tentativas = 3
+
+# Loop para permitir ao usuário tentar fazer login
+while tentativas > 0:
+    usuario = input("Digite o nome de usuário: ")
+    senha = input("Digite a senha: ")
+    
+    if usuario == usuario_correto and senha == senha_correta:
+        print("Bem-vindo!")
+        break
+    else:
+        tentativas -= 1
+        if tentativas > 0:
+            print(f"Credenciais incorretas. Você tem mais {tentativas} tentativa(s).")
+        else:
+            print("Acesso bloqueado.")
+            for _ in range(3):
+                print("Acesso bloqueado.")
